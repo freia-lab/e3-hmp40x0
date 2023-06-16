@@ -10,6 +10,7 @@
 core.*
 *-loc/*.Makefile
 hmp40x0/*.Makefile
+hmp40x0/O.*
 cellMods/
 testMods*/
 *PVs.list

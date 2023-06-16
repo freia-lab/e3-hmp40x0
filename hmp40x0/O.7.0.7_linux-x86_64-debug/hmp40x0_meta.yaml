@@ -1,5 +1,0 @@
-wrapper_url: 'https://github.com/freia-lab/e3-hmp40x0.git'
-wrapper_git_desc: 'c500cc405ad5b796db1e928d97530e43a2ce3331'
-wrapper_diffs: [ " M cmds/st.cmd",  " M configure/CONFIG_MODULE",  " M configure/module/RULES_MODULE",  " M hmp40x0.Makefile",  "?? freia-symbols",  "?? hmp40x0/",  "?? iocsh/hmp4040.iocsh",  "?? opi/hmp4040.bob", ]
-module_git_desc: 'c500cc405ad5b796db1e928d97530e43a2ce3331'
-module_diffs: [ " M cmds/st.cmd",  " M configure/CONFIG_MODULE",  " M configure/module/RULES_MODULE",  "?? freia-symbols",  "?? hmp40x0/",  "?? iocsh/hmp4040.iocsh",  "?? opi/hmp4040.bob", ]

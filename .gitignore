@@ -1,0 +1,17 @@
+# Editor-related
+*~
+.vscode
+
+# OS-related
+.DS_Store
+
+# Common e3 artifacts
+*.local
+core.*
+*-loc/*.Makefile
+hmp40x0/*.Makefile
+cellMods/
+testMods*/
+*PVs.list
+pv.list
+dbl

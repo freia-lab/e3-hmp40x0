@@ -1,0 +1,21 @@
+.PHONY: db
+db: conf
+	$(QUIET) $(E3_MODULE_MAKE_CMDS) db
+
+.PHONY: hdrs
+hdrs:
+#	$(SUDO) install -m 755 -d $(E3_MODULES_INSTALL_LOCATION_INC)/pv
+#	cd $(E3_MODULES_INSTALL_LOCATION_INC) && $(SUDO) mv *.h pv/
+
+# There is also an `epics` target that can be used to build the
+# module as a standard EPICS module, that can be used like
+#
+#     .PHONY: epics
+#     epics:
+#     	$(QUIET)echo "EPICS_BASE := $(EPICS_BASE)"        >  $(TOP)/$(E3_MODULE_SRC_PATH)/configure/RELEASE
+#     	$(QUIET)echo "ASYN := $(M_ASYN)"                  >  $(TOP)/$(E3_MODULE_SRC_PATH)/configure/RELEASE
+#     	$(QUIET)echo "SSCAN := $(M_SSCAN)"                >> $(TOP)/$(E3_MODULE_SRC_PATH)/configure/RELEASE
+#     	$(QUIET)echo "SNCSEQ := $(M_SNCSEQ)"              >> $(TOP)/$(E3_MODULE_SRC_PATH)/configure/RELEASE
+#     	$(QUIET)echo "CHECK_RELEASE := YES"               >  $(TOP)/$(E3_MODULE_SRC_PATH)/configure/CONFIG_SITE
+#     	$(QUIET)echo "INSTALL_LOCATION := $(M_DEVLIB2)"   >> $(TOP)/$(E3_MODULE_SRC_PATH)/configure/CONFIG_SITE
+#     	$(SUDOBASH) "$(MAKE) -C $(E3_MODULE_SRC_PATH)"

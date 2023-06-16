@@ -1,0 +1,4 @@
+include $(E3_REQUIRE_CONFIG)/RULES_SITEMODS
+
+include $(TOP)/configure/module/RULES_MODULE
+-include $(TOP)/configure/module/RULES_DKMS_L

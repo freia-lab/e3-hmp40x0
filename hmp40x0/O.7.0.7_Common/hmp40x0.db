@@ -1,0 +1,7 @@
+record(lsi, "$(P)$(DEV):Id") {
+   field (DESC, "HPM's id")
+   field (DTYP, "stream")
+   field (INP, "@hmp40x0.proto get_id $(PORT)")
+   field (SIZV, "100")
+   field (PINI, "YES")
+}

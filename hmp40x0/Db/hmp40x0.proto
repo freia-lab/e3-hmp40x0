@@ -1,0 +1,12 @@
+# Protocol file for T&S HMP2000/HMP4000 power supplies
+
+Terminator = LF;
+#ReadTimeout = 200;
+
+get_id {
+   out "*idn?";
+   in "%#s";
+   @init { out "*idn?";
+   	 in "%#s"; }
+}
+

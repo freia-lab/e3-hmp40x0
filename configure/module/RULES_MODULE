@@ -19,3 +19,15 @@ hdrs:
 #     	$(QUIET)echo "CHECK_RELEASE := YES"               >  $(TOP)/$(E3_MODULE_SRC_PATH)/configure/CONFIG_SITE
 #     	$(QUIET)echo "INSTALL_LOCATION := $(M_DEVLIB2)"   >> $(TOP)/$(E3_MODULE_SRC_PATH)/configure/CONFIG_SITE
 #     	$(SUDOBASH) "$(MAKE) -C $(E3_MODULE_SRC_PATH)"
+
+# Local FREIA additions
+
+OPIS_HOME = /opt/epics/OPIS
+OPI_DIR = /opt/epics/opi/bob
+LINK_DIR = ../../OPIS
+
+.PHONY: opiinstall
+opiinstall:
+	mkdir -p $(OPIS_HOME)/$(E3_MODULE_NAME)
+	rsync -va --exclude 'README.md' $(TOP)/opi/ $(OPIS_HOME)/$(E3_MODULE_NAME)/$(OPI_VERSION)/
+	cd $(OPI_DIR); rm -f $(OPI_DIRNAME); ln -s $(LINK_DIR)/$(E3_MODULE_NAME)/$(OPI_VERSION)/ $(OPI_DIRNAME)

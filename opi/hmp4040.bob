@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2023-06-16 17:10:04 by konrad-->
+<display version="2.0.0">
+  <name>Display</name>
+  <macros>
+    <D>HMP4040</D>
+    <P>CstatV-AC:</P>
+  </macros>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <class>TITLE</class>
+    <macros>
+      <D>HMP4040</D>
+      <P>CstatV-AC:</P>
+    </macros>
+    <text>HMP4040 Power Supply</text>
+    <x use_class="true">20</x>
+    <y use_class="true">0</y>
+    <width>550</width>
+    <height use_class="true">50</height>
+    <font use_class="true">
+      <font name="Header 1" family="Source Sans Pro" style="BOLD_ITALIC" size="36.0">
+      </font>
+    </font>
+    <foreground_color use_class="true">
+      <color name="HEADER-TEXT" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <transparent use_class="true">true</transparent>
+    <horizontal_alignment use_class="true">0</horizontal_alignment>
+    <vertical_alignment use_class="true">1</vertical_alignment>
+    <wrap_words use_class="true">false</wrap_words>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_1</name>
+    <text>Instrument Id:</text>
+    <x>10</x>
+    <y>570</y>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update</name>
+    <pv_name>$(P)$(D):Id.$</pv_name>
+    <x>120</x>
+    <y>570</y>
+    <width>660</width>
+    <format>6</format>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_1</name>
+    <actions execute_as_one="true">
+      <action type="open_display">
+        <file>../freia-symbols/display-builder/asyn/asynRecord.bob</file>
+        <macros>
+          <P>ioc24-hmp</P>
+          <R>:asynRec</R>
+        </macros>
+        <target>window</target>
+      </action>
+    </actions>
+    <pv_name>ioc24-hmp:asynRec</pv_name>
+    <text>asynRec</text>
+    <x>680</x>
+    <y>510</y>
+    <width>97</width>
+    <height>40</height>
+    <foreground_color>
+      <color red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="240" green="240" blue="240">
+      </color>
+    </background_color>
+  </widget>
+</display>

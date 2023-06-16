@@ -11,5 +11,11 @@ E3_MODULE_MAKEFILE := $(E3_MODULE_NAME).Makefile
 #
 # These will be automatically picked up by the build system.
 
+STREAM_DEP_VERSION := 2.8.24+1
+IOCSHUTILS_DEP_VERSION := 2.10.0+0
+
+OPI_VERSION := 0.1.0
+OPI_DIRNAME := hmp4040
+
 -include $(TOP)/configure/CONFIG_OPTIONS
 -include $(TOP)/configure/CONFIG_MODULE.local

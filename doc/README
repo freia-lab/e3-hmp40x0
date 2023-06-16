@@ -1,0 +1,4 @@
+To run it locally execute the following commands:
+
+make celluninstall clean cellinstall
+iocsh -l cellMods cmds/st.cmd

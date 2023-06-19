@@ -1,0 +1,23 @@
+The following functionality should be implemented:
+
+* Full status updated every second:
+ - general status (errors)
+ - overtemperature
+ - fuse tripped
+ - for each instrument (channel) the following information should be available:
+   -- mode of operation (voltage current)
+   -- measured current and voltage
+   -- status of autput (on/off)
+* Support for all common commands
+* Setting voltage and current for each instrument
+* Setting output on/off for each instrument
+* Support for SYSTEM subsystem commands with exception of the following:
+   -- system:beeper
+   -- system:version
+
+Optionally:
+ * support for the voltage protection subsystem
+
+Not needed:
+ * APPLY subsystem
+ * ARBITRARY subsystem

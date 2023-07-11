@@ -5,3 +5,21 @@ record(lsi, "$(P)$(DEV):Id") {
    field (SIZV, "100")
    field (PINI, "YES")
 }
+
+record(lsi, "$(P)$(DEV):SystErr") {
+   field (DESC, "HPM system error")
+   field (DTYP, "stream")
+   field (INP, "@hmp40x0.proto get_err $(PORT)")
+   field (SIZV, "100")
+   field (PINI, "YES")
+   field (SCAN, "1000")
+}
+
+record(mbbiDirect, "$(P)$(DEV):Stat1") {
+   field (DESC, "HPM system error")
+   field (DTYP, "stream")
+   field (INP, "@hmp40x0.proto get_stat(1) $(PORT)")
+   field (SIZV, "100")
+   field (PINI, "YES")
+   field (SCAN, "1000")
+}

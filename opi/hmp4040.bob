@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2023-06-16 17:10:04 by konrad-->
+<!--Saved on 2023-07-11 11:07:03 by nicklas-->
 <display version="2.0.0">
   <name>Display</name>
   <macros>
@@ -59,8 +59,8 @@
     </actions>
     <pv_name>ioc24-hmp:asynRec</pv_name>
     <text>asynRec</text>
-    <x>680</x>
-    <y>510</y>
+    <x>679</x>
+    <y>499</y>
     <width>97</width>
     <height>40</height>
     <foreground_color>
@@ -71,5 +71,19 @@
       <color red="240" green="240" blue="240">
       </color>
     </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_2</name>
+    <text>System error:</text>
+    <x>10</x>
+    <y>550</y>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_1</name>
+    <pv_name>$(P)$(D):SystErr</pv_name>
+    <x>120</x>
+    <y>550</y>
+    <width>660</width>
+    <format>6</format>
   </widget>
 </display>

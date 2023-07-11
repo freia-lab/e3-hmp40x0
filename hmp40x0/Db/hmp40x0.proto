@@ -10,3 +10,15 @@ get_id {
    	 in "%#s"; }
 }
 
+get_err {
+   out "syst:err?";
+   in "%#s";
+   @init {  out "syst:err?";
+   in "%#s"; }
+}
+
+get_stat {
+   out "stat:ques:inst:isum\$1?";
+   in "%X";
+}
+

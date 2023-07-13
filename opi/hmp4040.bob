@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2023-07-11 11:07:03 by nicklas-->
+<!--Saved on 2023-07-13 18:33:16 by nicklas-->
 <display version="2.0.0">
   <name>Display</name>
   <macros>
-    <D>HMP4040</D>
+    <DEV>HMP4040</DEV>
     <P>CstatV-AC:</P>
   </macros>
+  <width>1200</width>
+  <height>800</height>
   <widget type="label" version="2.0.0">
     <name>Label</name>
     <class>TITLE</class>
@@ -35,13 +37,13 @@
     <name>Label_1</name>
     <text>Instrument Id:</text>
     <x>10</x>
-    <y>570</y>
+    <y>761</y>
   </widget>
   <widget type="textupdate" version="2.0.0">
     <name>Text Update</name>
-    <pv_name>$(P)$(D):Id.$</pv_name>
+    <pv_name>$(P)$(DEV):Id.$</pv_name>
     <x>120</x>
-    <y>570</y>
+    <y>761</y>
     <width>660</width>
     <format>6</format>
   </widget>
@@ -60,7 +62,7 @@
     <pv_name>ioc24-hmp:asynRec</pv_name>
     <text>asynRec</text>
     <x>679</x>
-    <y>499</y>
+    <y>690</y>
     <width>97</width>
     <height>40</height>
     <foreground_color>
@@ -76,14 +78,62 @@
     <name>Label_2</name>
     <text>System error:</text>
     <x>10</x>
-    <y>550</y>
+    <y>741</y>
   </widget>
   <widget type="textupdate" version="2.0.0">
     <name>Text Update_1</name>
-    <pv_name>$(P)$(D):SystErr</pv_name>
+    <pv_name>$(P)$(DEV):SystErr</pv_name>
     <x>120</x>
-    <y>550</y>
+    <y>741</y>
     <width>660</width>
     <format>6</format>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Embedded Display</name>
+    <macros>
+      <CHAN>1</CHAN>
+    </macros>
+    <file>stat_template.bob</file>
+    <x>20</x>
+    <y>60</y>
+    <width>220</width>
+    <height>160</height>
+    <resize>2</resize>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Embedded Display_1</name>
+    <macros>
+      <CHAN>2</CHAN>
+    </macros>
+    <file>stat_template.bob</file>
+    <x>320</x>
+    <y>60</y>
+    <width>220</width>
+    <height>160</height>
+    <resize>2</resize>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Embedded Display_2</name>
+    <macros>
+      <CHAN>3</CHAN>
+    </macros>
+    <file>stat_template.bob</file>
+    <x>10</x>
+    <y>313</y>
+    <width>220</width>
+    <height>160</height>
+    <resize>2</resize>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Embedded Display_3</name>
+    <macros>
+      <CHAN>4</CHAN>
+    </macros>
+    <file>stat_template.bob</file>
+    <x>320</x>
+    <y>313</y>
+    <width>220</width>
+    <height>160</height>
+    <resize>2</resize>
   </widget>
 </display>

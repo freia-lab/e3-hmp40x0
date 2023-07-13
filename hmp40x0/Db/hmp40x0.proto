@@ -22,3 +22,14 @@ get_stat {
    in "%X";
 }
 
+get_set_val {
+   out "INST OUT\$1";
+   out "\$2?";
+   in "%f";
+}
+
+get_meas_val {
+   out "INST OUT\$1";
+   out "MEAS:\$2?";
+   in "%f";
+}

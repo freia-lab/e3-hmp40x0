@@ -12,14 +12,110 @@ record(lsi, "$(P)$(DEV):SystErr") {
    field (INP, "@hmp40x0.proto get_err $(PORT)")
    field (SIZV, "100")
    field (PINI, "YES")
-   field (SCAN, "1000")
+   field (SCAN, "1 second")
 }
 
-record(mbbiDirect, "$(P)$(DEV):Stat1") {
-   field (DESC, "HPM system error")
+record(mbbiDirect, "$(P)$(DEV):Chan$(CHAN):Stat") {
+   field (DESC, "HPM status register")
    field (DTYP, "stream")
-   field (INP, "@hmp40x0.proto get_stat(1) $(PORT)")
-   field (SIZV, "100")
+   field (INP, "@hmp40x0.proto get_stat($(CHAN)) $(PORT)")
    field (PINI, "YES")
-   field (SCAN, "1000")
+   field (SCAN, "1 second")
+   field (FLNK, "fanoutrecChan$(CHAN)")
 }
+
+record(fanout,"fanoutrecChan$(CHAN)") {
+   field (LNK0,"$(P)$(DEV):Chan$(CHAN):VoltMode.PROC")
+   field (LNK1,"$(P)$(DEV):Chan$(CHAN):CurrMode.PROC")
+   field (LNK2,"$(P)$(DEV):Chan$(CHAN):TempOver.PROC")
+   field (LNK3,"$(P)$(DEV):Chan$(CHAN):OvpTrip.PROC")
+   field (LNK4,"$(P)$(DEV):Chan$(CHAN):FuseTrip.PROC")
+}
+
+record(bi, "$(P)$(DEV):Chan$(CHAN):VoltMode") {
+   field (DESC, "HPM Volt Mode")
+   field (INP, "$(P)$(DEV):Chan$(CHAN):Stat.B0")
+   field (SCAN, "Passive")
+}
+
+record(bi, "$(P)$(DEV):Chan$(CHAN):CurrMode") {
+   field (DESC, "HPM Current Mode")
+   field (INP, "$(P)$(DEV):Chan$(CHAN):Stat.B1")
+   field (SCAN, "Passive")
+}
+
+record(bi, "$(P)$(DEV):Chan$(CHAN):TempOver") {
+   field (DESC, "HPM Temperature overrange")
+   field (INP, "$(P)$(DEV):Chan$(CHAN):Stat.B4")
+   field (SCAN, "Passive")
+   field (OSV, "MAJOR")
+}
+
+record(bi, "$(P)$(DEV):Chan$(CHAN):OvpTrip") {
+   field (DESC, "HPM Over voltage protection trip")
+   field (INP, "$(P)$(DEV):Chan$(CHAN):Stat.B9")
+   field (SCAN, "Passive")
+   field (OSV, "MAJOR")
+}
+
+record(bi, "$(P)$(DEV):Chan$(CHAN):FuseTrip") {
+   field (DESC, "HPM Fuse trip")
+   field (INP, "$(P)$(DEV):Chan$(CHAN):Stat.B10")
+   field (SCAN, "Passive")
+   field (OSV, "MAJOR")
+}
+
+record(ai, "$(P)$(DEV):Chan$(CHAN):RdSetVolt") {
+   field (DESC, "HPM read set voltage")
+   field (DTYP, "stream")
+   field (INP, "@hmp40x0.proto get_set_val($(CHAN),VOLT) $(PORT)")
+   field (EGU, "V")
+   field (PINI, "YES")
+   field (SCAN, "1 second")
+   field (FLNK, "$(P)$(DEV):Chan$(CHAN):RdSetCurr")
+}
+
+record(ai, "$(P)$(DEV):Chan$(CHAN):RdMeasVolt") {
+   field (DESC, "HPM read meas voltage")
+   field (DTYP, "stream")
+   field (INP, "@hmp40x0.proto get_meas_val($(CHAN),VOLT) $(PORT)")
+   field (EGU, "V")
+   field (PINI, "YES")
+   field (SCAN, "1 second")
+   field (FLNK, "$(P)$(DEV):Chan$(CHAN):RdMeasCurr")
+}
+
+record(ai, "$(P)$(DEV):Chan$(CHAN):RdSetCurr") {
+   field (DESC, "HPM read set current")
+   field (DTYP, "stream")
+   field (INP, "@hmp40x0.proto get_set_val($(CHAN),CURR) $(PORT)")
+   field (EGU, "A")
+   field (FLNK, "$(P)$(DEV):Chan$(CHAN):CalcSetPow")
+}
+
+record(ai, "$(P)$(DEV):Chan$(CHAN):RdMeasCurr") {
+   field (DESC, "HPM read meas current")
+   field (DTYP, "stream")
+   field (INP, "@hmp40x0.proto get_meas_val($(CHAN),CURR) $(PORT)")
+   field (EGU, "A")
+   field (FLNK, "$(P)$(DEV):Chan$(CHAN):CalcMeasPow")
+}
+
+record(calc, "$(P)$(DEV):Chan$(CHAN):CalcMeasPow") {
+   field (DESC, "HPM calculated power from meas val")
+   field (INPA, "$(P)$(DEV):Chan$(CHAN):RdMeasVolt")
+   field (INPB, "$(P)$(DEV):Chan$(CHAN):RdMeasCurr")
+   field (CALC, "A*B")
+   field (EGU, "W")
+}
+
+record(calc, "$(P)$(DEV):Chan$(CHAN):CalcSetPow") {
+   field (DESC, "HPM calculated power from set values")
+   field (INPA, "$(P)$(DEV):Chan$(CHAN):RdSetVolt")
+   field (INPB, "$(P)$(DEV):Chan$(CHAN):RdSetCurr")
+   field (CALC, "A*B")
+   field (EGU, "W")
+}
+
+
+

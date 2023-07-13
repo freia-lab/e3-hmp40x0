@@ -1,4 +1,7 @@
 file "hmp40x40-gen.template" { pattern
-{}
-{}
+{CHAN}
+{1}
+{2}
+{3}
+{4}
 }

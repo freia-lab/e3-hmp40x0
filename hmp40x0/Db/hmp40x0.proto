@@ -3,6 +3,9 @@
 Terminator = LF;
 #ReadTimeout = 200;
 
+P = "CstatV-AC:";
+DEV = "HMP4040";
+
 get_id {
    out "*idn?";
    in "%#s";
@@ -12,14 +15,15 @@ get_id {
 
 get_err {
    out "syst:err?";
-   in "%#s";
-   @init {  out "syst:err?";
-   in "%#s"; }
+   in "%(" $P $DEV ":SystErr)#s";
+   #@init {  out "syst:err?";
+   #in "%(" $P $DEV ":SystErr)#s"; 
+   #in "%#s";}
 }
 
 get_stat {
    out "stat:ques:inst:isum\$1?";
-   in "%X";
+   in "%i";
 }
 
 get_set_val {
@@ -32,4 +36,5 @@ get_meas_val {
    out "INST OUT\$1";
    out "MEAS:\$2?";
    in "%f";
+   @replytimeout { get_err; }
 }

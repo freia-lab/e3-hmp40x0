@@ -8,11 +8,11 @@ record(lsi, "$(P)$(DEV):Id") {
 
 record(lsi, "$(P)$(DEV):SystErr") {
    field (DESC, "HPM system error")
-   field (DTYP, "stream")
-   field (INP, "@hmp40x0.proto get_err $(PORT)")
+   #field (DTYP, "stream")
+   #field (INP, "@hmp40x0.proto get_err $(PORT)")
    field (SIZV, "100")
-   field (PINI, "YES")
-   field (SCAN, "1 second")
+   #field (PINI, "YES")
+   #field (SCAN, "1 second")
 }
 
 record(mbbiDirect, "$(P)$(DEV):Chan$(CHAN):Stat") {
@@ -23,6 +23,7 @@ record(mbbiDirect, "$(P)$(DEV):Chan$(CHAN):Stat") {
    field (SCAN, "1 second")
    field (FLNK, "fanoutrecChan$(CHAN)")
 }
+
 
 record(fanout,"fanoutrecChan$(CHAN)") {
    field (LNK0,"$(P)$(DEV):Chan$(CHAN):VoltMode.PROC")

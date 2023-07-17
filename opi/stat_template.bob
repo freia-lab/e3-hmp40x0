@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2023-07-13 18:32:49 by nicklas-->
+<!--Saved on 2023-07-17 12:27:44 by nicklas-->
 <display version="2.0.0">
   <name>Display</name>
-  <width>300</width>
-  <height>260</height>
+  <width>400</width>
+  <height>350</height>
   <widget type="led" version="2.0.0">
     <name>LED</name>
     <pv_name>$(P)$(DEV):Chan$(CHAN):CurrMode</pv_name>
     <x>60</x>
-    <y>162</y>
+    <y>251</y>
     <width>10</width>
     <height>10</height>
   </widget>
@@ -16,7 +16,7 @@
     <name>LED_1</name>
     <pv_name>$(P)$(DEV):Chan$(CHAN):FuseTrip</pv_name>
     <x>60</x>
-    <y>233</y>
+    <y>322</y>
     <width>10</width>
     <height>10</height>
     <on_color>
@@ -28,7 +28,7 @@
     <name>LED_2</name>
     <pv_name>$(P)$(DEV):Chan$(CHAN):TempOver</pv_name>
     <x>60</x>
-    <y>190</y>
+    <y>279</y>
     <width>10</width>
     <height>10</height>
     <on_color>
@@ -40,7 +40,7 @@
     <name>LED_3</name>
     <pv_name>$(P)$(DEV):Chan$(CHAN):VoltMode</pv_name>
     <x>60</x>
-    <y>142</y>
+    <y>231</y>
     <width>10</width>
     <height>10</height>
   </widget>
@@ -48,7 +48,7 @@
     <name>LED_4</name>
     <pv_name>$(P)$(DEV):Chan$(CHAN):OvpTrip</pv_name>
     <x>60</x>
-    <y>211</y>
+    <y>300</y>
     <width>10</width>
     <height>10</height>
     <on_color>
@@ -60,7 +60,7 @@
     <name>Label</name>
     <text>Voltage mode</text>
     <x>80</x>
-    <y>136</y>
+    <y>225</y>
     <width>93</width>
     <height>21</height>
     <auto_size>true</auto_size>
@@ -69,7 +69,7 @@
     <name>Label_1</name>
     <text>Current mode</text>
     <x>80</x>
-    <y>156</y>
+    <y>245</y>
     <width>93</width>
     <height>21</height>
     <auto_size>true</auto_size>
@@ -78,7 +78,7 @@
     <name>Label_2</name>
     <text>Temperature overrange</text>
     <x>80</x>
-    <y>184</y>
+    <y>273</y>
     <width>160</width>
     <height>21</height>
     <auto_size>true</auto_size>
@@ -87,7 +87,7 @@
     <name>Label_3</name>
     <text>Over voltage protection trip</text>
     <x>80</x>
-    <y>205</y>
+    <y>294</y>
     <width>186</width>
     <height>21</height>
     <auto_size>true</auto_size>
@@ -96,7 +96,7 @@
     <name>Label_4</name>
     <text>Fuse trip</text>
     <x>80</x>
-    <y>226</y>
+    <y>315</y>
     <width>59</width>
     <height>21</height>
     <auto_size>true</auto_size>
@@ -209,7 +209,7 @@
   <widget type="polyline" version="2.0.0">
     <name>Polyline_1</name>
     <x>23</x>
-    <y>182</y>
+    <y>271</y>
     <width>240</width>
     <height>1</height>
     <points>
@@ -224,5 +224,63 @@
       </color>
     </line_color>
     <line_style>1</line_style>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Entry</name>
+    <pv_name>$(P)$(DEV):Chan$(CHAN):SetVolt</pv_name>
+    <x>39</x>
+    <y>170</y>
+    <width>50</width>
+    <precision>3</precision>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_11</name>
+    <text>Set voltage</text>
+    <x>26</x>
+    <y>150</y>
+    <width>75</width>
+    <height>21</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Entry_1</name>
+    <pv_name>$(P)$(DEV):Chan$(CHAN):SetCurr</pv_name>
+    <x>124</x>
+    <y>170</y>
+    <width>50</width>
+    <precision>3</precision>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_12</name>
+    <text>Set current</text>
+    <x>111</x>
+    <y>150</y>
+    <width>75</width>
+    <height>21</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>Boolean Button</name>
+    <pv_name>testBB</pv_name>
+    <x>211</x>
+    <y>168</y>
+    <width>71</width>
+    <height>29</height>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(pv_name)</pv_name>
+        <value>1</value>
+        <description>WritePV</description>
+      </action>
+    </actions>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_13</name>
+    <text>Output</text>
+    <x>222</x>
+    <y>150</y>
+    <width>48</width>
+    <height>21</height>
+    <auto_size>true</auto_size>
   </widget>
 </display>

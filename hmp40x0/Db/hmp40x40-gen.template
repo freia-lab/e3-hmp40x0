@@ -118,5 +118,34 @@ record(calc, "$(P)$(DEV):Chan$(CHAN):CalcSetPow") {
    field (EGU, "W")
 }
 
+record(ao, "$(P)$(DEV):Chan$(CHAN):SetVolt") {
+   field (DESC, "HPM set voltage")
+   field (DTYP, "stream")
+   field (OUT, "@hmp40x0.proto set_val($(CHAN),VOLT) $(PORT)")
+   field (EGU, "V")
+   #field (PINI, "YES")
+   #field (SCAN, "1 second")
+   #field (FLNK, "$(P)$(DEV):Chan$(CHAN):RdSetCurr")
+}
+
+record(ao, "$(P)$(DEV):Chan$(CHAN):SetCurr") {
+   field (DESC, "HPM set current")
+   field (DTYP, "stream")
+   field (OUT, "@hmp40x0.proto set_val($(CHAN),CURR) $(PORT)")
+   field (EGU, "A")
+   #field (PINI, "YES")
+   #field (SCAN, "1 second")
+   #field (FLNK, "$(P)$(DEV):Chan$(CHAN):RdSetCurr")
+}
+
+#record(bo, "$(P)$(DEV):Chan$(CHAN):cActive") {
+#   field (DESC, "HPM activate = 1, deactivate = 0")
+#   field (DTYP, "stream")
+#   field (OUT, "@hmp40x0.proto set_active($(CHAN)) $(PORT)")
+#}
+
+record(bo, "testBB") {
+   field (PINI, "YES")
+}
 
 

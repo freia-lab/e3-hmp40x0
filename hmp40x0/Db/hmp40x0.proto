@@ -6,13 +6,6 @@ Terminator = LF;
 P = "CstatV-AC:";
 DEV = "HMP4040";
 
-get_id {
-   out "*idn?";
-   in "%#s";
-   @init { out "*idn?";
-   	 in "%#s"; }
-}
-
 get_err {
    out "syst:err?";
    in "%(" $P $DEV ":SystErr)#s";
@@ -21,20 +14,63 @@ get_err {
    #in "%#s";}
 }
 
+get_id {
+   out "*idn?";
+   in "%#s";
+   @init { out "*idn?";
+   	 in "%#s"; }
+   @replytimeout { get_err; }
+}
+
 get_stat {
    out "stat:ques:inst:isum\$1?";
    in "%i";
+   @replytimeout { get_err; }
 }
 
 get_set_val {
    out "INST OUT\$1";
    out "\$2?";
    in "%f";
+   @replytimeout { get_err; }
 }
 
 get_meas_val {
    out "INST OUT\$1";
    out "MEAS:\$2?";
+   #out "ME";
    in "%f";
    @replytimeout { get_err; }
 }
+
+set_val {
+   out "INST OUT\$1";
+   out "\$2 %.3f";
+   out "syst:err?";
+   in "0, \"No error\"";
+   @init { out "INST OUT\$1";
+           out "\$2?";
+   	 in "%f"; }
+   @mismatch {in "%(" $P $DEV ":SystErr)#s";}
+}
+
+set_active {
+   out "INST OUT\$1";
+   out "OUTP:SEL %i";
+   out "OUTP %i";
+   out "syst:err?";
+   in "0, \"No error\"";
+   @init { out "INST OUT\$1";
+           out "OUTP?";
+   	 in "%i"; }
+   @mismatch {in "%(" $P $DEV ":SystErr)#s";}
+}
+
+get_active {
+   out "INST OUT\$1";
+   out "OUTP?";
+   in "%i";
+   @replytimeout { get_err; }
+}
+
+

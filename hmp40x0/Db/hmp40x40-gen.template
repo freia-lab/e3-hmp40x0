@@ -138,14 +138,116 @@ record(ao, "$(P)$(DEV):Chan$(CHAN):SetCurr") {
    #field (FLNK, "$(P)$(DEV):Chan$(CHAN):RdSetCurr")
 }
 
-#record(bo, "$(P)$(DEV):Chan$(CHAN):cActive") {
-#   field (DESC, "HPM activate = 1, deactivate = 0")
-#   field (DTYP, "stream")
-#   field (OUT, "@hmp40x0.proto set_active($(CHAN)) $(PORT)")
-#}
+record(bo, "$(P)$(DEV):Chan$(CHAN):cActive") {
+   field (DESC, "HPM activate = 1, deactivate = 0")
+   field (DTYP, "stream")
+   field (OUT, "@hmp40x0.proto set_active($(CHAN)) $(PORT)")
+}
 
-record(bo, "testBB") {
+record(bi, "$(P)$(DEV):Chan$(CHAN):sActive") {
+   field (DESC, "HPM active = 1, off = 0")
+   field (DTYP, "stream")
+   field (INP, "@hmp40x0.proto get_active($(CHAN)) $(PORT)")
    field (PINI, "YES")
+   field (SCAN, "1 second")
+}
+
+record(bo, "$(P)$(DEV):cLoc") {
+   field (DESC, "HPM set local")
+   field (DTYP, "stream")
+   field (OUT, "@hmp40x0.proto set_syst(loc) $(PORT)")
+}
+
+record(bo, "$(P)$(DEV):cMix") {
+   field (DESC, "HPM set local/remote")
+   field (DTYP, "stream")
+   field (OUT, "@hmp40x0.proto set_syst(mix) $(PORT)")
+}
+
+record(bo, "$(P)$(DEV):cRem") {
+   field (DESC, "HPM set remote")
+   field (DTYP, "stream")
+   field (OUT, "@hmp40x0.proto set_syst(rem) $(PORT)")
+}
+
+record(bo, "$(P)$(DEV):cRwl") {
+   field (DESC, "HPM set remote lock")
+   field (DTYP, "stream")
+   field (OUT, "@hmp40x0.proto set_syst(rwl) $(PORT)")
+}
+
+record(mbbiDirect, "$(P)$(DEV):ESR"){
+   field (DESC, "HPM esr, bit 6 local mode")
+   field (DTYP, "stream")
+   field (INP, "@hmp40x0.proto get_esr $(PORT)")
+}
+
+record(bo, "$(P)$(DEV):CLS"){   
+   field (DESC, "HMP clear status")
+   field (DTYP, "stream")
+   field (OUT, "@hmp40x0.proto set_com(cls) $(PORT)")
+}
+
+record(ao, "$(P)$(DEV):ESE"){   
+   field (DESC, "HMP event status enable")
+   field (DTYP, "stream")
+   field (OUT, "@hmp40x0.proto set_ese $(PORT)")
+   field (DRVL, "0")
+   field (DRVH, "255")
+}
+
+record(bo, "$(P)$(DEV):OPC"){   
+   field (DESC, "HMP operation complete")
+   field (DTYP, "stream")
+   field (OUT, "@hmp40x0.proto set_com(opc) $(PORT)")
+}
+
+record(bo, "$(P)$(DEV):RST"){   
+   field (DESC, "HMP reset")
+   field (DTYP, "stream")
+   field (OUT, "@hmp40x0.proto set_com(rst) $(PORT)")
+}
+
+record(ao, "$(P)$(DEV):SRE"){   
+   field (DESC, "")
+   field (DTYP, "stream")
+   field (OUT, "@hmp40x0.proto set_sre $(PORT)")
+   field (DRVL, "0")
+   field (DRVH, "255")
+}
+
+record(mbbiDirect, "$(P)$(DEV):STB"){   
+   field (DESC, "HPM status byte")
+   field (DTYP, "stream")
+   field (INP, "@hmp40x0.proto get_stb $(PORT)")
+}
+
+record(ai, "$(P)$(DEV):TST"){   
+   field (DESC, "HPM self test query: > 0, error")
+   field (DTYP, "stream")
+   field (INP, "@hmp40x0.proto get_tst $(PORT)")
+}
+
+record(bo, "$(P)$(DEV):WAI"){   
+   field (DESC, "HPM wait to continue")
+   field (DTYP, "stream")
+   field (OUT, "@hmp40x0.proto set_com(wai) $(PORT)")
+}
+
+record(ao, "$(P)$(DEV):SAV"){   
+   field (DESC, "HMP save settings")
+   field (DTYP, "stream")
+   field (OUT, "@hmp40x0.proto set_sav $(PORT)")
+   field (DRVL, "0")
+   field (DRVH, "9")
+}
+
+record(ao, "$(P)$(DEV):RCL"){   
+   field (DESC, "HMP recall settings")
+   field (DTYP, "stream")
+   field (OUT, "@hmp40x0.proto set_rcl $(PORT)")
+   field (DRVL, "0")
+   field (DRVH, "9")
 }
 
 

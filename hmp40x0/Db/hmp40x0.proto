@@ -71,6 +71,71 @@ get_active {
    out "OUTP?";
    in "%i";
    @replytimeout { get_err; }
+   @init { out "INST OUT\$1";
+           out "OUTP?";
+   	 in "%i"; }
+}
+
+set_syst {
+   out "syst:\$1";
+   out "syst:err?";
+   in "0, \"No error\"";
+   @mismatch {in "%(" $P $DEV ":SystErr)#s";}
+}
+
+get_esr {
+   out "*esr?";
+   in "%i";
+   @replytimeout { get_err; }
+   @init { out "*esr?";
+   in "%i";}
+}
+
+set_com {
+   out "*\$1";
+   out "syst:err?";
+   in "0, \"No error\"";
+   @mismatch {in "%(" $P $DEV ":SystErr)#s";}
+}
+
+set_ese {
+   out "*ese %i";
+   out "syst:err?";
+   in "0, \"No error\"";
+   @mismatch {in "%(" $P $DEV ":SystErr)#s";}
+}
+
+set_sre {
+   out "*sre %i";
+   out "syst:err?";
+   in "0, \"No error\"";
+   @mismatch {in "%(" $P $DEV ":SystErr)#s";}
+}
+
+set_sav {
+   out "*sav %i";
+   out "syst:err?";
+   in "0, \"No error\"";
+   @mismatch {in "%(" $P $DEV ":SystErr)#s";}
+}
+
+set_rcl {
+   out "*rcl %i";
+   out "syst:err?";
+   in "0, \"No error\"";
+   @mismatch {in "%(" $P $DEV ":SystErr)#s";}
+}
+
+get_stb {
+   out "*stb?";
+   in "%i";
+   @replytimeout { get_err; }
+}
+
+get_tst {
+   out "*tst?";
+   in "%i";
+   @replytimeout { get_err; }
 }
 
 

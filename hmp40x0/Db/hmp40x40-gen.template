@@ -15,6 +15,15 @@ record(lsi, "$(P)$(DEV):SystErr") {
    #field (SCAN, "1 second")
 }
 
+record(bo, "$(P)$(DEV):SystErrFlnk") {
+   field (DESC, "HPM system error")
+   field (DTYP, "stream")
+   field (OUT, "@hmp40x0.proto get_err $(PORT)")
+   field (PINI, "YES")
+   #field (SCAN, "1 second")
+}
+
+
 record(mbbiDirect, "$(P)$(DEV):Chan$(CHAN):Stat") {
    field (DESC, "HPM status register")
    field (DTYP, "stream")
@@ -33,17 +42,18 @@ record(fanout,"fanoutrecChan$(CHAN)") {
    field (LNK4,"$(P)$(DEV):Chan$(CHAN):FuseTrip.PROC")
 }
 
-record(bi, "$(P)$(DEV):Chan$(CHAN):VoltMode") {
-   field (DESC, "HPM Volt Mode")
+record(bi, "$(P)$(DEV):Chan$(CHAN):CurrMode") {
+   field (DESC, "HPM Current Mode")
    field (INP, "$(P)$(DEV):Chan$(CHAN):Stat.B0")
    field (SCAN, "Passive")
 }
 
-record(bi, "$(P)$(DEV):Chan$(CHAN):CurrMode") {
-   field (DESC, "HPM Current Mode")
+record(bi, "$(P)$(DEV):Chan$(CHAN):VoltMode") {
+   field (DESC, "HPM Volt Mode")
    field (INP, "$(P)$(DEV):Chan$(CHAN):Stat.B1")
    field (SCAN, "Passive")
 }
+
 
 record(bi, "$(P)$(DEV):Chan$(CHAN):TempOver") {
    field (DESC, "HPM Temperature overrange")

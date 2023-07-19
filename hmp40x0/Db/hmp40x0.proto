@@ -23,7 +23,7 @@ get_id {
 }
 
 get_stat {
-   out "stat:ques:inst:isum\$1?";
+   out "stat:ques:inst:isum\$1:cond?";
    in "%i";
    @replytimeout { get_err; }
 }

@@ -35,6 +35,29 @@ get_set_val {
    @replytimeout { get_err; }
 }
 
+set {
+   out "INST OUT\$1";
+   out "\$2";
+   out "syst:err?";
+   in "0, \"No error\"";
+   @mismatch {in "%(" $P $DEV ":SystErr)#s";}  
+}
+
+set_ovp_mode {
+   out "INST OUT\$1";
+   out "volt:prot:mode %s";
+   out "syst:err?";
+   in "0, \"No error\"";
+   @mismatch {in "%(" $P $DEV ":SystErr)#s";} 
+}
+
+get_ovp_mode {
+   out "INST OUT\$1";
+   out "volt:prot:mode?";
+   in "%s";
+   @replytimeout { get_err; }
+}
+
 get_meas_val {
    out "INST OUT\$1";
    out "MEAS:\$2?";

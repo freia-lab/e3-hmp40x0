@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2023-07-18 11:59:01 by nicklas-->
+<!--Saved on 2023-07-20 11:59:03 by nicklas-->
 <display version="2.0.0">
   <name>Display</name>
   <width>400</width>
-  <height>350</height>
+  <height>500</height>
   <widget type="led" version="2.0.0">
     <name>LED</name>
     <pv_name>$(P)$(DEV):Chan$(CHAN):CurrMode</pv_name>
@@ -296,5 +296,94 @@
     <y>177</y>
     <width>13</width>
     <height>13</height>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_14</name>
+    <text>Voltage overprotection</text>
+    <x>57</x>
+    <y>350</y>
+    <width>154</width>
+    <height>21</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Entry_2</name>
+    <pv_name>$(P)$(DEV):Chan$(CHAN):SetOVP</pv_name>
+    <x>57</x>
+    <y>379</y>
+    <width>63</width>
+    <precision>3</precision>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_6</name>
+    <pv_name>$(P)$(DEV):Chan$(CHAN):RdOVP</pv_name>
+    <x>125</x>
+    <y>379</y>
+    <width>62</width>
+    <precision>3</precision>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>Boolean Button_1</name>
+    <pv_name>$(P)$(DEV):Chan$(CHAN):setOVPMode</pv_name>
+    <x>57</x>
+    <y>410</y>
+    <width>80</width>
+    <height>20</height>
+    <off_label>Switch mode</off_label>
+    <off_color>
+      <color name="BACKGROUND" red="220" green="225" blue="221">
+      </color>
+    </off_color>
+    <on_label>Switch mode</on_label>
+    <on_color>
+      <color name="BACKGROUND" red="220" green="225" blue="221">
+      </color>
+    </on_color>
+    <show_led>false</show_led>
+    <font>
+      <font family="Source Sans Pro" style="REGULAR" size="12.0">
+      </font>
+    </font>
+    <actions>
+    </actions>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_7</name>
+    <pv_name>$(P)$(DEV):Chan$(CHAN):getOVPMode</pv_name>
+    <x>139</x>
+    <y>411</y>
+    <width>91</width>
+    <font>
+      <font family="Source Sans Pro" style="REGULAR" size="14.0">
+      </font>
+    </font>
+    <precision>3</precision>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_6</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(pv_name)</pv_name>
+        <value>0</value>
+        <description>WritePV</description>
+      </action>
+    </actions>
+    <pv_name>$(P)$(DEV):Chan$(CHAN):setOVPCle</pv_name>
+    <text>Reset OVP</text>
+    <x>270</x>
+    <y>295</y>
+    <width>60</width>
+    <height>20</height>
+    <font>
+      <font family="Source Sans Pro" style="REGULAR" size="12.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_7</name>
+    <x>510</x>
+    <y>620</y>
+    <width>0</width>
+    <height>0</height>
   </widget>
 </display>

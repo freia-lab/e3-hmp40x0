@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2023-07-21 10:33:55 by nicklas-->
+<display version="2.0.0">
+  <name>Display</name>
+  <width>300</width>
+  <height>500</height>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <text>Common commands</text>
+    <x>16</x>
+    <y>5</y>
+    <width>140</width>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_2</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(pv_name)</pv_name>
+        <value>1</value>
+        <description>WritePV</description>
+      </action>
+    </actions>
+    <pv_name>$(P)$(DEV):CLS</pv_name>
+    <text>Clear status (*cls)</text>
+    <x>11</x>
+    <y>33</y>
+    <width>200</width>
+    <height>25</height>
+    <tooltip>$(pv_name)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_4</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(pv_name)</pv_name>
+        <value>1</value>
+        <description>WritePV</description>
+      </action>
+    </actions>
+    <pv_name>$(P)$(DEV):OPC</pv_name>
+    <text>Operation complete (*opc)</text>
+    <x>11</x>
+    <y>73</y>
+    <width>200</width>
+    <height>25</height>
+    <tooltip>$(pv_name)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_5</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(pv_name)</pv_name>
+        <value>1</value>
+        <description>WritePV</description>
+      </action>
+    </actions>
+    <pv_name>$(P)$(DEV):RST</pv_name>
+    <text>Reset (*rst)</text>
+    <x>11</x>
+    <y>113</y>
+    <width>200</width>
+    <height>25</height>
+    <tooltip>$(pv_name)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_7</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(pv_name)</pv_name>
+        <value>1</value>
+        <description>WritePV</description>
+      </action>
+    </actions>
+    <pv_name>$(P)$(DEV):WAI</pv_name>
+    <text>Wait to continue (*wai)</text>
+    <x>11</x>
+    <y>153</y>
+    <width>200</width>
+    <height>25</height>
+    <tooltip>$(pv_name)</tooltip>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_1</name>
+    <text>Event status enable (*ese)</text>
+    <x>12</x>
+    <y>203</y>
+    <width>174</width>
+    <height>21</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Entry</name>
+    <x>262</x>
+    <y>223</y>
+    <width>1</width>
+    <height>1</height>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Entry_1</name>
+    <pv_name>$(P)$(DEV):ESE</pv_name>
+    <x>210</x>
+    <y>205</y>
+    <width>50</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_2</name>
+    <text>Service request enable (*sre)</text>
+    <x>12</x>
+    <y>239</y>
+    <width>192</width>
+    <height>21</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Entry_2</name>
+    <pv_name>$(P)$(DEV):SRE</pv_name>
+    <x>210</x>
+    <y>241</y>
+    <width>50</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_3</name>
+    <text>Save</text>
+    <x>12</x>
+    <y>279</y>
+    <width>33</width>
+    <height>21</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Entry_3</name>
+    <pv_name>$(P)$(DEV):SAV</pv_name>
+    <x>210</x>
+    <y>281</y>
+    <width>50</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_4</name>
+    <text>Recall</text>
+    <x>12</x>
+    <y>319</y>
+    <width>41</width>
+    <height>21</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Entry_4</name>
+    <pv_name>$(P)$(DEV):RCL</pv_name>
+    <x>210</x>
+    <y>321</y>
+    <width>50</width>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_8</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(pv_name)</pv_name>
+        <value>1</value>
+        <description>WritePV</description>
+      </action>
+    </actions>
+    <pv_name>$(P)$(DEV):ESR.PROC</pv_name>
+    <text>Get event status</text>
+    <x>12</x>
+    <y>369</y>
+    <width>180</width>
+    <height>25</height>
+    <tooltip>$(pv_name)</tooltip>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update</name>
+    <pv_name>$(P)$(DEV):ESR</pv_name>
+    <x>210</x>
+    <y>372</y>
+    <width>50</width>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_9</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(pv_name)</pv_name>
+        <value>1</value>
+        <description>WritePV</description>
+      </action>
+    </actions>
+    <pv_name>$(P)$(DEV):STB.PROC</pv_name>
+    <text>Get status byte</text>
+    <x>12</x>
+    <y>409</y>
+    <width>180</width>
+    <height>25</height>
+    <tooltip>$(pv_name)</tooltip>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_1</name>
+    <pv_name>$(P)$(DEV):STB</pv_name>
+    <x>210</x>
+    <y>412</y>
+    <width>50</width>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_10</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(pv_name)</pv_name>
+        <value>1</value>
+        <description>WritePV</description>
+      </action>
+    </actions>
+    <pv_name>$(P)$(DEV):TST.PROC</pv_name>
+    <text>Initialise self-test</text>
+    <x>12</x>
+    <y>449</y>
+    <width>180</width>
+    <height>25</height>
+    <tooltip>$(pv_name)</tooltip>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_2</name>
+    <pv_name>$(P)$(DEV):TST</pv_name>
+    <x>210</x>
+    <y>452</y>
+    <width>50</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_5</name>
+    <text>0-255</text>
+    <x>268</x>
+    <y>207</y>
+    <width>28</width>
+    <height>16</height>
+    <font>
+      <font family="Source Sans Pro" style="REGULAR" size="12.0">
+      </font>
+    </font>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_6</name>
+    <text>0-255</text>
+    <x>268</x>
+    <y>242</y>
+    <width>28</width>
+    <height>16</height>
+    <font>
+      <font family="Source Sans Pro" style="REGULAR" size="12.0">
+      </font>
+    </font>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_7</name>
+    <text>0-9</text>
+    <x>269</x>
+    <y>283</y>
+    <width>16</width>
+    <height>16</height>
+    <font>
+      <font family="Source Sans Pro" style="REGULAR" size="12.0">
+      </font>
+    </font>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_8</name>
+    <text>0-9</text>
+    <x>269</x>
+    <y>321</y>
+    <width>16</width>
+    <height>16</height>
+    <font>
+      <font family="Source Sans Pro" style="REGULAR" size="12.0">
+      </font>
+    </font>
+    <auto_size>true</auto_size>
+  </widget>
+</display>

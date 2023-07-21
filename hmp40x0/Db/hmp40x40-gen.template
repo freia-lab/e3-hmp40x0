@@ -227,6 +227,7 @@ record(mbbiDirect, "$(P)$(DEV):ESR"){
    field (DESC, "HPM esr, bit 6 local mode")
    field (DTYP, "stream")
    field (INP, "@hmp40x0.proto get_esr $(PORT)")
+   field (SCAN, "1 second")
 }
 
 record(bo, "$(P)$(DEV):CLS"){   
@@ -256,7 +257,7 @@ record(bo, "$(P)$(DEV):RST"){
 }
 
 record(ao, "$(P)$(DEV):SRE"){   
-   field (DESC, "")
+   field (DESC, "HMP service request enable")
    field (DTYP, "stream")
    field (OUT, "@hmp40x0.proto set_sre $(PORT)")
    field (DRVL, "0")

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2023-07-20 11:59:12 by nicklas-->
+<!--Saved on 2023-07-21 10:34:24 by nicklas-->
 <display version="2.0.0">
   <name>Display</name>
   <macros>
@@ -61,8 +61,8 @@
     </actions>
     <pv_name>ioc24-hmp:asynRec</pv_name>
     <text>asynRec</text>
-    <x>699</x>
-    <y>534</y>
+    <x>820</x>
+    <y>543</y>
     <width>97</width>
     <height>40</height>
     <foreground_color>
@@ -228,5 +228,21 @@
     <y>585</y>
     <width>106</width>
     <height>20</height>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_8</name>
+    <actions>
+      <action type="open_display">
+        <file>common_commands.bob</file>
+        <target>window</target>
+        <description>Open Display</description>
+      </action>
+    </actions>
+    <text>Common commands</text>
+    <x>630</x>
+    <y>537</y>
+    <width>150</width>
+    <height>20</height>
+    <tooltip>$(actions)</tooltip>
   </widget>
 </display>

@@ -123,9 +123,8 @@ set_com {
 
 set_ese {
    out "*ese %i";
-   out "syst:err?";
-   in "0, \"No error\"";
-   @mismatch {in "%(" $P $DEV ":SystErr)#s";}
+   in "%i";
+   @replytimeout { get_err; }
 }
 
 set_sre {

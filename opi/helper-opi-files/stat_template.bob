@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2023-07-21 09:14:37 by nicklas-->
+<!--Saved on 2023-08-16 16:35:13 by konrad-->
 <display version="2.0.0">
   <name>Display</name>
-  <width>400</width>
-  <height>500</height>
+  <width>350</width>
+  <height>450</height>
   <widget type="led" version="2.0.0">
     <name>LED</name>
     <pv_name>$(P)$(DEV):Chan$(CHAN):CurrMode</pv_name>
@@ -105,8 +105,8 @@
     <name>Label_5</name>
     <text>Channel $(CHAN)</text>
     <x>57</x>
-    <width>264</width>
-    <height>48</height>
+    <width>154</width>
+    <height>27</height>
     <font>
       <font name="Header 2" family="Source Sans Pro" style="BOLD_ITALIC" size="21.0">
       </font>
@@ -378,12 +378,5 @@
       <font family="Source Sans Pro" style="REGULAR" size="12.0">
       </font>
     </font>
-  </widget>
-  <widget type="action_button" version="3.0.0">
-    <name>Action Button_7</name>
-    <x>510</x>
-    <y>620</y>
-    <width>0</width>
-    <height>0</height>
   </widget>
 </display>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2023-07-21 10:33:55 by nicklas-->
+<!--Saved on 2023-08-16 17:23:38 by konrad-->
 <display version="2.0.0">
-  <name>Display</name>
-  <width>300</width>
+  <name>HMP4040-Commands</name>
+  <width>330</width>
   <height>500</height>
   <widget type="label" version="2.0.0">
     <name>Label</name>
@@ -173,6 +173,7 @@
     <x>210</x>
     <y>372</y>
     <width>50</width>
+    <format>4</format>
   </widget>
   <widget type="action_button" version="3.0.0">
     <name>Action Button_9</name>
@@ -190,6 +191,7 @@
     <width>180</width>
     <height>25</height>
     <tooltip>$(pv_name)</tooltip>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="textupdate" version="2.0.0">
     <name>Text Update_1</name>
@@ -197,6 +199,7 @@
     <x>210</x>
     <y>412</y>
     <width>50</width>
+    <format>4</format>
   </widget>
   <widget type="action_button" version="3.0.0">
     <name>Action Button_10</name>
@@ -214,6 +217,7 @@
     <width>180</width>
     <height>25</height>
     <tooltip>$(pv_name)</tooltip>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="textupdate" version="2.0.0">
     <name>Text Update_2</name>

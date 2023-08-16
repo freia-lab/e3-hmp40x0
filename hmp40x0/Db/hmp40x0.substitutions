@@ -1,4 +1,9 @@
-file "hmp40x40-gen.template" { pattern
+file "hmp40x0-gen.template" { pattern
+{}
+{}
+}
+
+file "hmp40x0-chan.template" { pattern
 {CHAN}
 {1}
 {2}

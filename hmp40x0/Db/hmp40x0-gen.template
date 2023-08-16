@@ -1,0 +1,138 @@
+record(lsi, "$(P)$(DEV):Id") {
+   field (DESC, "HPM's id")
+   field (DTYP, "stream")
+   field (INP, "@hmp40x0.proto get_id $(PORT)")
+   field (SIZV, "100")
+   field (PINI, "YES")
+}
+
+record(lsi, "$(P)$(DEV):SystErr") {
+   field (DESC, "HPM system error")
+   #field (DTYP, "stream")
+   #field (INP, "@hmp40x0.proto get_err $(PORT)")
+   field (SIZV, "100")
+   #field (PINI, "YES")
+   #field (SCAN, "1 second")
+}
+
+record(bo, "$(P)$(DEV):SystErrFlnk") {
+   field (DESC, "HPM system error")
+   field (UDFS, "NO_ALARM")
+   field (DTYP, "stream")
+   field (OUT, "@hmp40x0.proto get_err $(PORT)")
+   field (PINI, "YES")
+   #field (SCAN, "1 second")
+}
+
+# Commands
+
+record(bo, "$(P)$(DEV):cLoc") {
+   field (DESC, "HPM set local")
+   field (UDFS, "NO_ALARM")
+   field (DTYP, "stream")
+   field (OUT, "@hmp40x0.proto set_syst(loc) $(PORT)")
+}
+
+record(bo, "$(P)$(DEV):cMix") {
+   field (DESC, "HPM set local/remote")
+   field (UDFS, "NO_ALARM")
+   field (DTYP, "stream")
+   field (OUT, "@hmp40x0.proto set_syst(mix) $(PORT)")
+}
+
+record(bo, "$(P)$(DEV):cRem") {
+   field (DESC, "HPM set remote")
+   field (UDFS, "NO_ALARM")
+   field (DTYP, "stream")
+   field (OUT, "@hmp40x0.proto set_syst(rem) $(PORT)")
+}
+
+record(bo, "$(P)$(DEV):cRwl") {
+   field (DESC, "HPM set remote lock")
+   field (UDFS, "NO_ALARM")
+   field (DTYP, "stream")
+   field (OUT, "@hmp40x0.proto set_syst(rwl) $(PORT)")
+}
+
+record(mbbiDirect, "$(P)$(DEV):ESR"){
+   field (DESC, "HPM esr, bit 6 local mode")
+   field (DTYP, "stream")
+   field (INP, "@hmp40x0.proto get_esr $(PORT)")
+   field (SCAN, "1 second")
+}
+
+record(bo, "$(P)$(DEV):CLS"){   
+   field (DESC, "HMP clear status")
+   field (UDFS, "NO_ALARM")
+   field (DTYP, "stream")
+   field (OUT, "@hmp40x0.proto set_com(cls) $(PORT)")
+}
+
+record(ao, "$(P)$(DEV):ESE"){   
+   field (DESC, "HMP event status enable")
+   field (DTYP, "stream")
+   field (OUT, "@hmp40x0.proto set_ese $(PORT)")
+   field (DRVL, "0")
+   field (DRVH, "255")
+}
+
+record(bo, "$(P)$(DEV):OPC"){   
+   field (DESC, "HMP operation complete")
+   field (UDFS, "NO_ALARM")
+   field (DTYP, "stream")
+   field (OUT, "@hmp40x0.proto set_com(opc) $(PORT)")
+}
+
+record(bo, "$(P)$(DEV):RST"){   
+   field (DESC, "HMP reset")
+   field (UDFS, "NO_ALARM")
+   field (DTYP, "stream")
+   field (OUT, "@hmp40x0.proto set_com(rst) $(PORT)")
+}
+
+record(ao, "$(P)$(DEV):SRE"){   
+   field (DESC, "HMP service request enable")
+   field (DTYP, "stream")
+   field (OUT, "@hmp40x0.proto set_sre $(PORT)")
+   field (DRVL, "0")
+   field (DRVH, "255")
+}
+
+record(mbbiDirect, "$(P)$(DEV):STB"){   
+   field (DESC, "HPM status byte")
+   field (DTYP, "stream")
+   field (INP, "@hmp40x0.proto get_stb $(PORT)")
+}
+
+record(ai, "$(P)$(DEV):TST"){   
+   field (DESC, "HPM self test query: > 0, error")
+   field (DTYP, "stream")
+   field (INP, "@hmp40x0.proto get_tst $(PORT)")
+}
+
+record(bo, "$(P)$(DEV):WAI"){   
+   field (DESC, "HPM wait to continue")
+   field (UDFS, "NO_ALARM")
+   field (DTYP, "stream")
+   field (OUT, "@hmp40x0.proto set_com(wai) $(PORT)")
+}
+
+record(ao, "$(P)$(DEV):SAV"){   
+   field (DESC, "HMP save settings")
+   field (UDFS, "NO_ALARM")
+   field (DTYP, "stream")
+   field (OUT, "@hmp40x0.proto set_sav $(PORT)")
+   field (DRVL, "0")
+   field (DRVH, "9")
+}
+
+record(ao, "$(P)$(DEV):RCL"){   
+   field (DESC, "HMP recall settings")
+   field (UDFS, "NO_ALARM")
+   field (DTYP, "stream")
+   field (OUT, "@hmp40x0.proto set_rcl $(PORT)")
+   field (DRVL, "0")
+   field (DRVH, "9")
+}
+
+

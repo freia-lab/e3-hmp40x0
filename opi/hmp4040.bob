@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2023-07-21 10:34:24 by nicklas-->
+<!--Saved on 2023-08-16 16:37:37 by konrad-->
 <display version="2.0.0">
-  <name>Display</name>
+  <name>HMP4040</name>
   <macros>
     <DEV>HMP4040</DEV>
     <P>CstatV-AC:</P>
   </macros>
-  <width>1200</width>
+  <width>1400</width>
   <height>800</height>
   <widget type="label" version="2.0.0">
     <name>Label</name>
@@ -93,21 +93,22 @@
     <macros>
       <CHAN>1</CHAN>
     </macros>
-    <file>stat_template.bob</file>
+    <file>helper-opi-files/stat_template.bob</file>
     <x>20</x>
     <y>60</y>
-    <height>350</height>
-    <resize>2</resize>
+    <width>333</width>
+    <height>440</height>
   </widget>
   <widget type="embedded" version="2.0.0">
     <name>Embedded Display_1</name>
     <macros>
       <CHAN>2</CHAN>
     </macros>
-    <file>stat_template.bob</file>
+    <file>helper-opi-files/stat_template.bob</file>
     <x>353</x>
     <y>60</y>
-    <height>350</height>
+    <width>350</width>
+    <height>450</height>
     <resize>2</resize>
   </widget>
   <widget type="embedded" version="2.0.0">
@@ -115,10 +116,11 @@
     <macros>
       <CHAN>3</CHAN>
     </macros>
-    <file>stat_template.bob</file>
+    <file>helper-opi-files/stat_template.bob</file>
     <x>686</x>
     <y>60</y>
-    <height>350</height>
+    <width>350</width>
+    <height>450</height>
     <resize>2</resize>
   </widget>
   <widget type="embedded" version="2.0.0">
@@ -126,10 +128,11 @@
     <macros>
       <CHAN>4</CHAN>
     </macros>
-    <file>stat_template.bob</file>
+    <file>helper-opi-files/stat_template.bob</file>
     <x>1020</x>
     <y>60</y>
-    <height>350</height>
+    <width>350</width>
+    <height>450</height>
     <resize>2</resize>
   </widget>
   <widget type="action_button" version="3.0.0">
@@ -233,7 +236,7 @@
     <name>Action Button_8</name>
     <actions>
       <action type="open_display">
-        <file>common_commands.bob</file>
+        <file>helper-opi-files/common_commands.bob</file>
         <target>window</target>
         <description>Open Display</description>
       </action>

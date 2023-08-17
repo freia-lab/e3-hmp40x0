@@ -165,6 +165,8 @@ record(bo, "$(P)$(DEV):Chan$(CHAN):cActive") {
    field (DESC, "HPM activate = 1, deactivate = 0")
    field (DTYP, "stream")
    field (OUT, "@hmp40x0.proto set_active($(CHAN)) $(PORT)")
+   field (ZNAM, "OFF")
+   field (ONAM, "ON")
 }
 
 record(bi, "$(P)$(DEV):Chan$(CHAN):sActive") {
@@ -172,7 +174,19 @@ record(bi, "$(P)$(DEV):Chan$(CHAN):sActive") {
    field (DTYP, "stream")
    field (INP, "@hmp40x0.proto get_active($(CHAN)) $(PORT)")
 #   field (PINI, "YES")
+   field (ZNAM, "OFF")
+   field (ONAM, "ON")
    field (SCAN, "1 second")
 }
 
+
+record(bi, "$(P)$(DEV):Chan$(CHAN):sOutpSel") {
+   field (DESC, "Output selected")
+   field (DTYP, "stream")
+   field (INP, "@hmp40x0.proto get_outputSel($(CHAN)) $(PORT)")
+#   field (PINI, "YES")
+   field (ZNAM, "")
+   field (ONAM, "Selected")
+   field (SCAN, "1 second")
+}
 

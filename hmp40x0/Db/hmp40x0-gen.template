@@ -102,6 +102,7 @@ record(mbbiDirect, "$(P)$(DEV):STB"){
    field (DESC, "HPM status byte")
    field (DTYP, "stream")
    field (INP, "@hmp40x0.proto get_stb $(PORT)")
+   field (SCAN, "1 second")
 }
 
 record(ai, "$(P)$(DEV):TST"){   
@@ -135,4 +136,21 @@ record(ao, "$(P)$(DEV):RCL"){
    field (DRVH, "9")
 }
 
+record(bi, "$(P)$(DEV):sOutputOn") {
+   field (DESC, "Output On status")
+   field (DTYP, "stream")
+   field (INP, "@hmp40x0.proto get_outputGen $(PORT)")
+   field (ZNAM, "Off")
+   field (ONAM, "On")
+   field (SCAN, "1 second")
+}
+
+record(bo, "$(P)$(DEV):cOutputOn") {
+   field (DESC, "Set Output On or Off")
+   field (UDFS, "NO_ALARM")
+   field (DTYP, "stream")
+   field (OUT, "@hmp40x0.proto set_outputGen $(PORT)")
+   field (ZNAM, "Off")
+   field (ONAM, "On")
+}
 

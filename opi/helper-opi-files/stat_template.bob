@@ -1,24 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2023-08-16 16:35:13 by konrad-->
+<!--Saved on 2023-08-17 17:16:58 by konrad-->
 <display version="2.0.0">
-  <name>Display</name>
+  <name>Channel</name>
   <width>350</width>
   <height>450</height>
+  <widget type="led" version="2.0.0">
+    <name>LED_6</name>
+    <pv_name>$(P)$(DEV):Chan$(CHAN):sOutpSel</pv_name>
+    <x>39</x>
+    <width>261</width>
+    <height>30</height>
+    <off_color>
+      <color red="90" green="110" blue="90" alpha="0">
+      </color>
+    </off_color>
+    <line_color>
+      <color red="50" green="50" blue="50" alpha="0">
+      </color>
+    </line_color>
+    <square>true</square>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
   <widget type="led" version="2.0.0">
     <name>LED</name>
     <pv_name>$(P)$(DEV):Chan$(CHAN):CurrMode</pv_name>
     <x>60</x>
-    <y>251</y>
-    <width>10</width>
-    <height>10</height>
+    <y>249</y>
+    <width>15</width>
+    <height>15</height>
+    <off_color>
+      <color name="LED-RED-OFF" red="110" green="101" blue="90">
+      </color>
+    </off_color>
+    <on_color>
+      <color name="LED-RED-ON" red="255" green="60" blue="46">
+      </color>
+    </on_color>
   </widget>
   <widget type="led" version="2.0.0">
     <name>LED_1</name>
     <pv_name>$(P)$(DEV):Chan$(CHAN):FuseTrip</pv_name>
     <x>60</x>
-    <y>322</y>
-    <width>10</width>
-    <height>10</height>
+    <y>320</y>
+    <width>15</width>
+    <height>15</height>
     <on_color>
       <color name="RED" red="252" green="13" blue="27">
       </color>
@@ -28,9 +53,9 @@
     <name>LED_2</name>
     <pv_name>$(P)$(DEV):Chan$(CHAN):TempOver</pv_name>
     <x>60</x>
-    <y>279</y>
-    <width>10</width>
-    <height>10</height>
+    <y>277</y>
+    <width>15</width>
+    <height>15</height>
     <on_color>
       <color name="RED" red="252" green="13" blue="27">
       </color>
@@ -40,17 +65,25 @@
     <name>LED_3</name>
     <pv_name>$(P)$(DEV):Chan$(CHAN):VoltMode</pv_name>
     <x>60</x>
-    <y>231</y>
-    <width>10</width>
-    <height>10</height>
+    <y>229</y>
+    <width>15</width>
+    <height>15</height>
+    <off_color>
+      <color name="LED-GREEN-OFF" red="90" green="110" blue="90">
+      </color>
+    </off_color>
+    <on_color>
+      <color name="LED-GREEN-ON" red="70" green="255" blue="70">
+      </color>
+    </on_color>
   </widget>
   <widget type="led" version="2.0.0">
     <name>LED_4</name>
     <pv_name>$(P)$(DEV):Chan$(CHAN):OvpTrip</pv_name>
     <x>60</x>
-    <y>300</y>
-    <width>10</width>
-    <height>10</height>
+    <y>298</y>
+    <width>15</width>
+    <height>15</height>
     <on_color>
       <color name="RED" red="252" green="13" blue="27">
       </color>
@@ -118,7 +151,7 @@
     <pv_name>$(P)$(DEV):Chan$(CHAN):RdSetVolt</pv_name>
     <x>92</x>
     <y>62</y>
-    <width>50</width>
+    <width>60</width>
     <precision>3</precision>
   </widget>
   <widget type="textupdate" version="2.0.0">
@@ -126,7 +159,7 @@
     <pv_name>$(P)$(DEV):Chan$(CHAN):RdSetCurr</pv_name>
     <x>162</x>
     <y>62</y>
-    <width>50</width>
+    <width>60</width>
     <precision>3</precision>
   </widget>
   <widget type="textupdate" version="2.0.0">
@@ -134,7 +167,12 @@
     <pv_name>$(P)$(DEV):Chan$(CHAN):RdMeasVolt</pv_name>
     <x>92</x>
     <y>99</y>
-    <width>50</width>
+    <width>60</width>
+    <height>25</height>
+    <font>
+      <font name="Default Bold" family="Source Sans Pro" style="BOLD" size="16.0">
+      </font>
+    </font>
     <precision>3</precision>
   </widget>
   <widget type="textupdate" version="2.0.0">
@@ -142,7 +180,12 @@
     <pv_name>$(P)$(DEV):Chan$(CHAN):RdMeasCurr</pv_name>
     <x>162</x>
     <y>99</y>
-    <width>50</width>
+    <width>60</width>
+    <height>25</height>
+    <font>
+      <font name="Default Bold" family="Source Sans Pro" style="BOLD" size="16.0">
+      </font>
+    </font>
     <precision>3</precision>
   </widget>
   <widget type="label" version="2.0.0">
@@ -186,7 +229,7 @@
     <pv_name>$(P)$(DEV):Chan$(CHAN):CalcSetPow</pv_name>
     <x>238</x>
     <y>62</y>
-    <width>45</width>
+    <width>60</width>
     <precision>2</precision>
   </widget>
   <widget type="textupdate" version="2.0.0">
@@ -194,7 +237,12 @@
     <pv_name>$(P)$(DEV):Chan$(CHAN):CalcMeasPow</pv_name>
     <x>238</x>
     <y>99</y>
-    <width>45</width>
+    <width>60</width>
+    <height>25</height>
+    <font>
+      <font name="Default Bold" family="Source Sans Pro" style="BOLD" size="16.0">
+      </font>
+    </font>
     <precision>2</precision>
   </widget>
   <widget type="label" version="2.0.0">
@@ -229,7 +277,7 @@
     <name>Text Entry</name>
     <pv_name>$(P)$(DEV):Chan$(CHAN):SetVolt</pv_name>
     <x>39</x>
-    <y>170</y>
+    <y>173</y>
     <width>50</width>
     <precision>3</precision>
   </widget>
@@ -246,7 +294,7 @@
     <name>Text Entry_1</name>
     <pv_name>$(P)$(DEV):Chan$(CHAN):SetCurr</pv_name>
     <x>124</x>
-    <y>170</y>
+    <y>173</y>
     <width>50</width>
     <precision>3</precision>
   </widget>
@@ -259,31 +307,10 @@
     <height>21</height>
     <auto_size>true</auto_size>
   </widget>
-  <widget type="bool_button" version="2.0.0">
-    <name>Boolean Button</name>
-    <pv_name>$(P)$(DEV):Chan$(CHAN):cActive</pv_name>
-    <x>201</x>
-    <y>170</y>
-    <width>65</width>
-    <height>25</height>
-    <off_label>Turn on</off_label>
-    <off_color>
-      <color name="BACKGROUND" red="220" green="225" blue="221">
-      </color>
-    </off_color>
-    <on_label>Turn off</on_label>
-    <on_color>
-      <color name="BACKGROUND" red="220" green="225" blue="221">
-      </color>
-    </on_color>
-    <show_led>false</show_led>
-    <actions>
-    </actions>
-  </widget>
   <widget type="label" version="2.0.0">
     <name>Label_13</name>
     <text>Output</text>
-    <x>203</x>
+    <x>220</x>
     <y>149</y>
     <width>48</width>
     <height>21</height>
@@ -292,10 +319,8 @@
   <widget type="led" version="2.0.0">
     <name>LED_5</name>
     <pv_name>$(P)$(DEV):Chan$(CHAN):sActive</pv_name>
-    <x>276</x>
-    <y>177</y>
-    <width>13</width>
-    <height>13</height>
+    <x>300</x>
+    <y>174</y>
   </widget>
   <widget type="label" version="2.0.0">
     <name>Label_14</name>
@@ -378,5 +403,29 @@
       <font family="Source Sans Pro" style="REGULAR" size="12.0">
       </font>
     </font>
+  </widget>
+  <widget type="choice" version="2.0.0">
+    <name>Choice Button</name>
+    <pv_name>$(P)$(DEV):Chan$(CHAN):cActive</pv_name>
+    <x>200</x>
+    <y>172</y>
+    <width>89</width>
+    <height>25</height>
+    <items>
+      <item>Item 1</item>
+      <item>Item 2</item>
+    </items>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_8</name>
+    <pv_name>$(P)$(DEV):Chan$(CHAN):sOutpSel</pv_name>
+    <x>170</x>
+    <width>103</width>
+    <height>30</height>
+    <font>
+      <font name="Header 2" family="Source Sans Pro" style="BOLD_ITALIC" size="21.0">
+      </font>
+    </font>
+    <transparent>true</transparent>
   </widget>
 </display>

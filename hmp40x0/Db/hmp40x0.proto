@@ -1,7 +1,7 @@
 # Protocol file for T&S HMP2000/HMP4000 power supplies
 
 Terminator = LF;
-#ReadTimeout = 200;
+ReplyTimeout = 3000;
 
 P = "CstatV-AC:";
 DEV = "HMP4040";

@@ -3,6 +3,8 @@
 Terminator = LF;
 ReplyTimeout = 3000;
 
+DELAY = 50;
+
 P = "CstatV-AC:";
 DEV = "HMP4040";
 
@@ -30,6 +32,7 @@ get_stat {
 
 get_set_val {
    out "INST OUT\$1";
+   wait $DELAY;
    out "\$2?";
    in "%f";
    @replytimeout { get_err; }
@@ -60,6 +63,7 @@ get_ovp_mode {
 
 get_meas_val {
    out "INST OUT\$1";
+   wait $DELAY;
    out "MEAS:\$2?";
    #out "ME";
    in "%f";

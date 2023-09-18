@@ -10,10 +10,7 @@ DEV = "HMP4040";
 
 get_err {
    out "syst:err?";
-   in "%(" $P $DEV ":SystErr)#s";
-   #@init {  out "syst:err?";
-   #in "%(" $P $DEV ":SystErr)#s"; 
-   #in "%#s";}
+   in "%(\$1:SystErr)#s";
 }
 
 get_id {
@@ -21,13 +18,13 @@ get_id {
    in "%#s";
    @init { out "*idn?";
    	 in "%#s"; }
-   @replytimeout { get_err; }
+#   @replytimeout { get_err; }
 }
 
 get_stat {
    out "stat:ques:inst:isum\$1:cond?";
    in "%i";
-   @replytimeout { get_err; }
+   @replytimeout { get_err (\$2); }
 }
 
 get_set_val {
@@ -48,7 +45,7 @@ set {
 
 set_ovp_mode {
    out "INST OUT\$1";
-   out "volt:prot:mode %s";
+   out "volt:prot:modX %s";
    out "syst:err?";
    in "0, \"No error\"";
    @mismatch {in "%(" $P $DEV ":SystErr)#s";} 

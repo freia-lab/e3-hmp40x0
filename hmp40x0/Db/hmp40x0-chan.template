@@ -53,7 +53,7 @@ record(bi, "$(P)$(DEV):Chan$(CHAN):FuseTrip") {
 record(ai, "$(P)$(DEV):Chan$(CHAN):RdSetVolt") {
    field (DESC, "HPM read set voltage")
    field (DTYP, "stream")
-   field (INP, "@hmp40x0.proto get_set_val($(CHAN),VOLT) $(PORT)")
+   field (INP, "@hmp40x0.proto get_set_val($(CHAN),VOLT,$(P)$(DEV)) $(PORT)")
    field (EGU, "V")
    field (PINI, "YES")
    field (SCAN, "1 second")
@@ -105,7 +105,7 @@ record(calc, "$(P)$(DEV):Chan$(CHAN):CalcSetPow") {
 record(ao, "$(P)$(DEV):Chan$(CHAN):SetVolt") {
    field (DESC, "HPM set voltage")
    field (DTYP, "stream")
-   field (OUT, "@hmp40x0.proto set_val($(CHAN),VOLT) $(PORT)")
+   field (OUT, "@hmp40x0.proto set_val($(CHAN),VOLT,$(P)$(DEV)) $(PORT)")
    field (EGU, "V")
    #field (PINI, "YES")
    #field (SCAN, "1 second")
@@ -115,21 +115,21 @@ record(ao, "$(P)$(DEV):Chan$(CHAN):SetVolt") {
 record(ao, "$(P)$(DEV):Chan$(CHAN):SetCurr") {
    field (DESC, "HPM set current")
    field (DTYP, "stream")
-   field (OUT, "@hmp40x0.proto set_val($(CHAN),CURR) $(PORT)")
+   field (OUT, "@hmp40x0.proto set_val($(CHAN),CURR,$(P)$(DEV)) $(PORT)")
    field (EGU, "A")
 }
 
 record(ao, "$(P)$(DEV):Chan$(CHAN):SetOVP") {
    field (DESC, "HPM set overprotection voltage")
    field (DTYP, "stream")
-   field (OUT, "@hmp40x0.proto set_val($(CHAN),volt:prot) $(PORT)")
+   field (OUT, "@hmp40x0.proto set_val($(CHAN),volt:prot,$(P)$(DEV)) $(PORT)")
    field (EGU, "V")
 }
 
 record(ai, "$(P)$(DEV):Chan$(CHAN):RdOVP") {
    field (DESC, "HPM read overprotection voltage")
    field (DTYP, "stream")
-   field (INP, "@hmp40x0.proto get_set_val($(CHAN),volt:prot) $(PORT)")
+   field (INP, "@hmp40x0.proto get_set_val($(CHAN),volt:prot,$(P)$(DEV)) $(PORT)")
    field (EGU, "V")
    field (PINI, "YES")
    field (SCAN, "1 second")
@@ -139,14 +139,14 @@ record(bo, "$(P)$(DEV):Chan$(CHAN):setOVPCle") {
    field (DESC, "HPM reset a tripped OVP")
    field (UDFS, "NO_ALARM")
    field (DTYP, "stream")
-   field (OUT, "@hmp40x0.proto set($(CHAN),volt:prot:cle) $(PORT)")
+   field (OUT, "@hmp40x0.proto set($(CHAN),volt:prot:cle,$(P)$(DEV)) $(PORT)")
 }
 
 record(bo, "$(P)$(DEV):Chan$(CHAN):setOVPMode") {
    field (DESC, "HPM set OVP mode")
    field (UDFS, "NO_ALARM")
    field (DTYP, "stream")
-   field (OUT, "@hmp40x0.proto set_ovp_mode($(CHAN)) $(PORT)")
+   field (OUT, "@hmp40x0.proto set_ovp_mode($(CHAN),$(P)$(DEV)) $(PORT)")
    field (ONAM, "protected")
    field (ZNAM, "measured")
 }
@@ -164,7 +164,7 @@ record(bi, "$(P)$(DEV):Chan$(CHAN):getOVPMode") {
 record(bo, "$(P)$(DEV):Chan$(CHAN):cActive") {
    field (DESC, "HPM activate = 1, deactivate = 0")
    field (DTYP, "stream")
-   field (OUT, "@hmp40x0.proto set_active($(CHAN)) $(PORT)")
+   field (OUT, "@hmp40x0.proto set_active($(CHAN),$(P)$(DEV)) $(PORT)")
    field (ZNAM, "OFF")
    field (ONAM, "ON")
 }

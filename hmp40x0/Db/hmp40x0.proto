@@ -5,9 +5,6 @@ ReplyTimeout = 3000;
 
 DELAY = 50;
 
-P = "CstatV-AC:";
-DEV = "HMP4040";
-
 get_err {
    out "syst:err?";
    in "%(\$1:SystErr)#s";
@@ -24,7 +21,7 @@ get_id {
 get_stat {
    out "stat:ques:inst:isum\$1:cond?";
    in "%i";
-   @replytimeout { get_err (\$2); }
+#   @replytimeout { get_err; }
 }
 
 get_set_val {
@@ -32,7 +29,7 @@ get_set_val {
    wait $DELAY;
    out "\$2?";
    in "%f";
-   @replytimeout { get_err; }
+#   @replytimeout { get_err; }
 }
 
 set {
@@ -40,22 +37,22 @@ set {
    out "\$2";
    out "syst:err?";
    in "0, \"No error\"";
-   @mismatch {in "%(" $P $DEV ":SystErr)#s";}  
+   @mismatch {in "%(\$3:SystErr)#s";}  
 }
 
 set_ovp_mode {
    out "INST OUT\$1";
-   out "volt:prot:modX %s";
+   out "volt:prot:mode %s";
    out "syst:err?";
    in "0, \"No error\"";
-   @mismatch {in "%(" $P $DEV ":SystErr)#s";} 
+   @mismatch {in "%(\$2:SystErr)#s";} 
 }
 
 get_ovp_mode {
    out "INST OUT\$1";
    out "volt:prot:mode?";
    in "%s";
-   @replytimeout { get_err; }
+#   @replytimeout { get_err; }
 }
 
 get_meas_val {
@@ -64,7 +61,7 @@ get_meas_val {
    out "MEAS:\$2?";
    #out "ME";
    in "%f";
-   @replytimeout { get_err; }
+#   @replytimeout { get_err; }
 }
 
 set_val {
@@ -75,7 +72,7 @@ set_val {
    @init { out "INST OUT\$1";
            out "\$2?";
    	 in "%f"; }
-   @mismatch {in "%(" $P $DEV ":SystErr)#s";}
+   @mismatch {in "%(\$3:SystErr)#s";}
 }
 
 set_active {
@@ -87,14 +84,14 @@ set_active {
    @init { out "INST OUT\$1";
            out "OUTP?";
    	 in "%i"; }
-   @mismatch {in "%(" $P $DEV ":SystErr)#s";}
+   @mismatch {in "%(\$2:SystErr)#s";}
 }
 
 get_active {
    out "INST:NSEL \$1";
    out "OUTP?";
    in "%i";
-   @replytimeout { get_err; }
+#   @replytimeout { get_err; }
    @init { out "INST OUT\$1";
            out "OUTP?";
    	 in "%i"; }
@@ -105,33 +102,33 @@ set_outputGen {
    out "syst:err?";
    in "0, \"No error\"";
    @init { out "OUTP:GEN?"; in "%i"; }
-   @mismatch {in "%(" $P $DEV ":SystErr)#s";}
+   @mismatch {in "%(\$1:SystErr)#s";}
 }
 
 get_outputGen {
    out "OUTP:GEN?";
    in "%i";
-   @replytimeout { get_err; }
+#   @replytimeout { get_err; }
 }
 
 get_outputSel {
    out "INST:NSEL \$1";
    out "OUTP:SEL?";
    in "%i";
-   @replytimeout { get_err; }
+#   @replytimeout { get_err; }
 }
 
 set_syst {
    out "syst:\$1";
    out "syst:err?";
    in "0, \"No error\"";
-   @mismatch {in "%(" $P $DEV ":SystErr)#s";}
+   @mismatch {in "%(\$2:SystErr)#s";}
 }
 
 get_esr {
    out "*esr?";
    in "%i";
-   @replytimeout { get_err; }
+#   @replytimeout { get_err; }
    @init { out "*esr?";
    in "%i";}
 }
@@ -140,47 +137,45 @@ set_com {
    out "*\$1";
    out "syst:err?";
    in "0, \"No error\"";
-   @mismatch {in "%(" $P $DEV ":SystErr)#s";}
+   @mismatch {in "%(\$2:SystErr)#s";}
 }
 
 set_ese {
    out "*ese %i";
    out "syst:err?";
    in "0, \"No error\"";
-   @mismatch {in "%(" $P $DEV ":SystErr)#s";}
+   @mismatch {in "%(\$1:SystErr)#s";}
 }
 
 set_sre {
    out "*sre %i";
    out "syst:err?";
    in "0, \"No error\"";
-   @mismatch {in "%(" $P $DEV ":SystErr)#s";}
+   @mismatch {in "%(\$1:SystErr)#s";}
 }
 
 set_sav {
    out "*sav %i";
    out "syst:err?";
    in "0, \"No error\"";
-   @mismatch {in "%(" $P $DEV ":SystErr)#s";}
+   @mismatch {in "%(\$1:SystErr)#s";}
 }
 
 set_rcl {
    out "*rcl %i";
    out "syst:err?";
    in "0, \"No error\"";
-   @mismatch {in "%(" $P $DEV ":SystErr)#s";}
+   @mismatch {in "%(\$1:SystErr)#s";}
 }
 
 get_stb {
    out "*stb?";
    in "%i";
-   @replytimeout { get_err; }
+#   @replytimeout { get_err; }
 }
 
 get_tst {
    out "*tst?";
    in "%i";
-   @replytimeout { get_err; }
+#   @replytimeout { get_err; }
 }
-
-

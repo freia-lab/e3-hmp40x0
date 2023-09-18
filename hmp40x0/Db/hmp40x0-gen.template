@@ -9,7 +9,7 @@ record(lsi, "$(P)$(DEV):Id") {
 record(lsi, "$(P)$(DEV):SystErr") {
    field (DESC, "HPM system error")
    #field (DTYP, "stream")
-   #field (INP, "@hmp40x0.proto get_err $(PORT)")
+   #field (INP, "@hmp40x0.proto get_err($(P)$(DEV)) $(PORT)")
    field (SIZV, "100")
    #field (PINI, "YES")
    #field (SCAN, "1 second")
@@ -19,7 +19,7 @@ record(bo, "$(P)$(DEV):SystErrFlnk") {
    field (DESC, "HPM system error")
    field (UDFS, "NO_ALARM")
    field (DTYP, "stream")
-   field (OUT, "@hmp40x0.proto get_err $(PORT)")
+   field (OUT, "@hmp40x0.proto get_err($(P)$(DEV)) $(PORT)")
    field (PINI, "YES")
    #field (SCAN, "1 second")
 }
@@ -30,28 +30,28 @@ record(bo, "$(P)$(DEV):cLoc") {
    field (DESC, "HPM set local")
    field (UDFS, "NO_ALARM")
    field (DTYP, "stream")
-   field (OUT, "@hmp40x0.proto set_syst(loc) $(PORT)")
+   field (OUT, "@hmp40x0.proto set_syst(loc,$(P)$(DEV)) $(PORT)")
 }
 
 record(bo, "$(P)$(DEV):cMix") {
    field (DESC, "HPM set local/remote")
    field (UDFS, "NO_ALARM")
    field (DTYP, "stream")
-   field (OUT, "@hmp40x0.proto set_syst(mix) $(PORT)")
+   field (OUT, "@hmp40x0.proto set_syst(mix,$(P)$(DEV)) $(PORT)")
 }
 
 record(bo, "$(P)$(DEV):cRem") {
    field (DESC, "HPM set remote")
    field (UDFS, "NO_ALARM")
    field (DTYP, "stream")
-   field (OUT, "@hmp40x0.proto set_syst(rem) $(PORT)")
+   field (OUT, "@hmp40x0.proto set_syst(rem,$(P)$(DEV)) $(PORT)")
 }
 
 record(bo, "$(P)$(DEV):cRwl") {
    field (DESC, "HPM set remote lock")
    field (UDFS, "NO_ALARM")
    field (DTYP, "stream")
-   field (OUT, "@hmp40x0.proto set_syst(rwl) $(PORT)")
+   field (OUT, "@hmp40x0.proto set_syst(rwl,$(P)$(DEV)) $(PORT)")
 }
 
 record(mbbiDirect, "$(P)$(DEV):ESR"){
@@ -65,13 +65,13 @@ record(bo, "$(P)$(DEV):CLS"){
    field (DESC, "HMP clear status")
    field (UDFS, "NO_ALARM")
    field (DTYP, "stream")
-   field (OUT, "@hmp40x0.proto set_com(cls) $(PORT)")
+   field (OUT, "@hmp40x0.proto set_com(cls,$(P)$(DEV)) $(PORT)")
 }
 
 record(ao, "$(P)$(DEV):ESE"){   
    field (DESC, "HMP event status enable")
    field (DTYP, "stream")
-   field (OUT, "@hmp40x0.proto set_ese $(PORT)")
+   field (OUT, "@hmp40x0.proto set_ese($(P)$(DEV)) $(PORT)")
    field (DRVL, "0")
    field (DRVH, "255")
 }
@@ -80,20 +80,20 @@ record(bo, "$(P)$(DEV):OPC"){
    field (DESC, "HMP operation complete")
    field (UDFS, "NO_ALARM")
    field (DTYP, "stream")
-   field (OUT, "@hmp40x0.proto set_com(opc) $(PORT)")
+   field (OUT, "@hmp40x0.proto set_com(opc,$(P)$(DEV)) $(PORT)")
 }
 
 record(bo, "$(P)$(DEV):RST"){   
    field (DESC, "HMP reset")
    field (UDFS, "NO_ALARM")
    field (DTYP, "stream")
-   field (OUT, "@hmp40x0.proto set_com(rst) $(PORT)")
+   field (OUT, "@hmp40x0.proto set_com(rst,$(P)$(DEV)) $(PORT)")
 }
 
 record(ao, "$(P)$(DEV):SRE"){   
    field (DESC, "HMP service request enable")
    field (DTYP, "stream")
-   field (OUT, "@hmp40x0.proto set_sre $(PORT)")
+   field (OUT, "@hmp40x0.proto set_sre($(P)$(DEV)) $(PORT)")
    field (DRVL, "0")
    field (DRVH, "255")
 }
@@ -115,14 +115,14 @@ record(bo, "$(P)$(DEV):WAI"){
    field (DESC, "HPM wait to continue")
    field (UDFS, "NO_ALARM")
    field (DTYP, "stream")
-   field (OUT, "@hmp40x0.proto set_com(wai) $(PORT)")
+   field (OUT, "@hmp40x0.proto set_com(wai,$(P)$(DEV)) $(PORT)")
 }
 
 record(ao, "$(P)$(DEV):SAV"){   
    field (DESC, "HMP save settings")
    field (UDFS, "NO_ALARM")
    field (DTYP, "stream")
-   field (OUT, "@hmp40x0.proto set_sav $(PORT)")
+   field (OUT, "@hmp40x0.proto set_sav($(P)$(DEV)) $(PORT)")
    field (DRVL, "0")
    field (DRVH, "9")
 }
@@ -131,7 +131,7 @@ record(ao, "$(P)$(DEV):RCL"){
    field (DESC, "HMP recall settings")
    field (UDFS, "NO_ALARM")
    field (DTYP, "stream")
-   field (OUT, "@hmp40x0.proto set_rcl $(PORT)")
+   field (OUT, "@hmp40x0.proto set_rcl($(P)$(DEV)) $(PORT)")
    field (DRVL, "0")
    field (DRVH, "9")
 }
@@ -149,7 +149,7 @@ record(bo, "$(P)$(DEV):cOutputOn") {
    field (DESC, "Set Output On or Off")
    field (UDFS, "NO_ALARM")
    field (DTYP, "stream")
-   field (OUT, "@hmp40x0.proto set_outputGen $(PORT)")
+   field (OUT, "@hmp40x0.proto set_outputGen($(P)$(DEV)) $(PORT)")
    field (ZNAM, "Off")
    field (ONAM, "On")
 }

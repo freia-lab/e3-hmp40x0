@@ -4,11 +4,11 @@ record(mbbiDirect, "$(P)$(DEV):Chan$(CHAN):Stat") {
    field (INP, "@hmp40x0.proto get_stat($(CHAN)) $(PORT)")
    field (PINI, "YES")
    field (SCAN, "1 second")
-   field (FLNK, "fanoutrecChan$(CHAN)")
+   field (FLNK, "$(P)$(DEV):fanoutrecChan$(CHAN)")
 }
 
 
-record(fanout,"fanoutrecChan$(CHAN)") {
+record(fanout,"$(P)$(DEV):fanoutrecChan$(CHAN)") {
    field (LNK0,"$(P)$(DEV):Chan$(CHAN):VoltMode.PROC")
    field (LNK1,"$(P)$(DEV):Chan$(CHAN):CurrMode.PROC")
    field (LNK2,"$(P)$(DEV):Chan$(CHAN):TempOver.PROC")

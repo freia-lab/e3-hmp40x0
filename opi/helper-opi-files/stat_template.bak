@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-10-03 14:44:57 by marek-->
+<!--Saved on 2023-08-17 17:16:58 by konrad-->
 <display version="2.0.0">
   <name>Channel</name>
   <width>350</width>
@@ -7,8 +7,8 @@
   <widget type="led" version="2.0.0">
     <name>LED_6</name>
     <pv_name>$(P)$(DEV):Chan$(CHAN):sOutpSel</pv_name>
-    <x>192</x>
-    <width>108</width>
+    <x>39</x>
+    <width>261</width>
     <height>30</height>
     <off_color>
       <color red="90" green="110" blue="90" alpha="0">
@@ -94,7 +94,8 @@
     <text>Voltage mode</text>
     <x>80</x>
     <y>225</y>
-    <width>112</width>
+    <width>93</width>
+    <height>21</height>
     <auto_size>true</auto_size>
   </widget>
   <widget type="label" version="2.0.0">
@@ -102,7 +103,8 @@
     <text>Current mode</text>
     <x>80</x>
     <y>245</y>
-    <width>112</width>
+    <width>93</width>
+    <height>21</height>
     <auto_size>true</auto_size>
   </widget>
   <widget type="label" version="2.0.0">
@@ -110,7 +112,8 @@
     <text>Temperature overrange</text>
     <x>80</x>
     <y>273</y>
-    <width>192</width>
+    <width>160</width>
+    <height>21</height>
     <auto_size>true</auto_size>
   </widget>
   <widget type="label" version="2.0.0">
@@ -118,7 +121,8 @@
     <text>Over voltage protection trip</text>
     <x>80</x>
     <y>294</y>
-    <width>224</width>
+    <width>186</width>
+    <height>21</height>
     <auto_size>true</auto_size>
   </widget>
   <widget type="label" version="2.0.0">
@@ -126,17 +130,18 @@
     <text>Fuse trip</text>
     <x>80</x>
     <y>315</y>
-    <width>71</width>
+    <width>59</width>
+    <height>21</height>
     <auto_size>true</auto_size>
   </widget>
   <widget type="label" version="2.0.0">
     <name>Label_5</name>
     <text>Channel $(CHAN)</text>
-    <x>60</x>
-    <width>204</width>
-    <height>26</height>
+    <x>57</x>
+    <width>154</width>
+    <height>27</height>
     <font>
-      <font name="Header 3" family="Source Sans Pro" style="BOLD_ITALIC" size="18.0">
+      <font name="Header 2" family="Source Sans Pro" style="BOLD_ITALIC" size="21.0">
       </font>
     </font>
     <auto_size>true</auto_size>
@@ -188,7 +193,8 @@
     <text>Voltage</text>
     <x>94</x>
     <y>33</y>
-    <width>62</width>
+    <width>51</width>
+    <height>21</height>
     <auto_size>true</auto_size>
   </widget>
   <widget type="label" version="2.0.0">
@@ -196,7 +202,8 @@
     <text>Current</text>
     <x>160</x>
     <y>33</y>
-    <width>61</width>
+    <width>52</width>
+    <height>21</height>
     <auto_size>true</auto_size>
   </widget>
   <widget type="label" version="2.0.0">
@@ -204,7 +211,8 @@
     <text>Set</text>
     <x>57</x>
     <y>61</y>
-    <width>27</width>
+    <width>22</width>
+    <height>21</height>
     <auto_size>true</auto_size>
   </widget>
   <widget type="label" version="2.0.0">
@@ -212,7 +220,8 @@
     <text>Measured</text>
     <x>13</x>
     <y>99</y>
-    <width>79</width>
+    <width>66</width>
+    <height>21</height>
     <auto_size>true</auto_size>
   </widget>
   <widget type="textupdate" version="2.0.0">
@@ -241,7 +250,8 @@
     <text>Power</text>
     <x>237</x>
     <y>33</y>
-    <width>49</width>
+    <width>43</width>
+    <height>21</height>
     <auto_size>true</auto_size>
   </widget>
   <widget type="polyline" version="2.0.0">
@@ -274,9 +284,10 @@
   <widget type="label" version="2.0.0">
     <name>Label_11</name>
     <text>Set voltage</text>
-    <x>15</x>
+    <x>26</x>
     <y>150</y>
-    <width>92</width>
+    <width>75</width>
+    <height>21</height>
     <auto_size>true</auto_size>
   </widget>
   <widget type="textentry" version="3.0.0">
@@ -292,7 +303,8 @@
     <text>Set current</text>
     <x>111</x>
     <y>150</y>
-    <width>90</width>
+    <width>75</width>
+    <height>21</height>
     <auto_size>true</auto_size>
   </widget>
   <widget type="label" version="2.0.0">
@@ -300,7 +312,8 @@
     <text>Output</text>
     <x>220</x>
     <y>149</y>
-    <width>56</width>
+    <width>48</width>
+    <height>21</height>
     <auto_size>true</auto_size>
   </widget>
   <widget type="led" version="2.0.0">
@@ -314,7 +327,8 @@
     <text>Voltage overprotection</text>
     <x>57</x>
     <y>350</y>
-    <width>185</width>
+    <width>154</width>
+    <height>21</height>
     <auto_size>true</auto_size>
   </widget>
   <widget type="textentry" version="3.0.0">
@@ -374,9 +388,9 @@
     <name>Action Button_6</name>
     <actions>
       <action type="write_pv">
-        <description>WritePV</description>
         <pv_name>$(pv_name)</pv_name>
         <value>0</value>
+        <description>WritePV</description>
       </action>
     </actions>
     <pv_name>$(P)$(DEV):Chan$(CHAN):setOVPCle</pv_name>
@@ -405,11 +419,11 @@
   <widget type="textupdate" version="2.0.0">
     <name>Text Update_8</name>
     <pv_name>$(P)$(DEV):Chan$(CHAN):sOutpSel</pv_name>
-    <x>200</x>
+    <x>170</x>
     <width>103</width>
     <height>30</height>
     <font>
-      <font name="Header 3" family="Source Sans Pro" style="BOLD_ITALIC" size="18.0">
+      <font name="Header 2" family="Source Sans Pro" style="BOLD_ITALIC" size="21.0">
       </font>
     </font>
     <transparent>true</transparent>

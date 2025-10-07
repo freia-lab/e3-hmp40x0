@@ -1,0 +1,35 @@
+# This should be the included snippet to configure and run the deployed IOC. 
+# It should be loaded with
+#
+#   iocshLoad("$(hmp40x0_DIR)hmp4040.iocsh", "IP=xxx.yyy.zzz.nnn IP_PORT=iiii")
+
+#- ###                hmp4040x2 iocsh                 ###
+#- ####################################################
+#- >> Mandatory
+#- IP1        - ethernet address of #1 PSU .10.50
+#- IP2        - ethernet address of #2 PSU .10.45
+#- P1	      - PV name prefix, pvname: $(P)$(DEV)...
+#- P2	      - PV name prefix, pvname: $(P)$(DEV)...
+#- IOCNAME    - iocname for the asyn record pv prefix
+
+#  >> Optional
+#  IP_PORT    - IP port number (default 5025)
+#  ASYN_PORT1  - asyn port name (default PORT1)
+#  ASYN_PORT2  - asyn port name (default PORT2)
+#  DEV        - device name (part of the PV name (default HMP4040)
+
+addScan(60)
+epicsEnvSet("IOCNAME", "$(IOCNAME)")
+
+drvAsynIPPortConfigure("$(ASYN_PORT1=PORT1)","$(IP1):$(IP_PORT=5025)",0,0,0)
+drvAsynIPPortConfigure("$(ASYN_PORT2=PORT2)","$(IP2):$(IP_PORT=5025)",0,0,0)
+
+#Indicate the folder where the protocol file is installed
+epicsEnvSet("STREAM_PROTOCOL_PATH","$(hmp40x0_DB)")
+
+#Load database defining EPICS records for each PSU module
+dbLoadRecords("hmp40x0.db", "PORT=$(ASYN_PORT=PORT1),P=$(P1),DEV=$(DEV=HMP4040)")
+dbLoadRecords("hmp40x0.db", "PORT=$(ASYN_PORT=PORT2),P=$(P2),DEV=$(DEV=HMP4040)")
+
+dbLoadRecords("asynRecord.db","P=${IOCNAME},R=:asynRec,PORT=$(ASYN_PORT=PORT1),ADDR='0',IMAX='1024',OMAX='256'")
+dbLoadRecords("asynRecord.db","P=${IOCNAME},R=:asynRec,PORT=$(ASYN_PORT=PORT2),ADDR='0',IMAX='1024',OMAX='256'")

@@ -1,7 +1,7 @@
 # This should be the included snippet to configure and run the deployed IOC. 
 # It should be loaded with
 #
-#   iocshLoad("$(hmp40x0_DIR)hmp4040.iocsh", "IP=xxx.yyy.zzz.nnn IP_PORT=iiii")
+#  iocshLoad("$(hmp40x0_DIR)hmp4040x2.iocsh", "IP1=y.y.y.y, P1=kkkkk:, IP2=x.x.x.x, P2=jjjjj, IOCNAME=iiiii")
 
 #- ###                hmp4040x2 iocsh                 ###
 #- ####################################################
